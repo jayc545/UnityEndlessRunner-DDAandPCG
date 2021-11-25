@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 38879876}
   - component: {fileID: 38879875}
   - component: {fileID: 38879874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 615217981}
   - component: {fileID: 615217980}
   - component: {fileID: 615217979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 769354869}
   - component: {fileID: 769354868}
   - component: {fileID: 769354867}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 1106973536}
   - component: {fileID: 1106973535}
   - component: {fileID: 1106973534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 1169711351}
   - component: {fileID: 1169711350}
   - component: {fileID: 1169711349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 1236342116}
   - component: {fileID: 1236342115}
   - component: {fileID: 1236342114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 1325573213}
   - component: {fileID: 1325573212}
   - component: {fileID: 1325573211}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 1476817733}
   - component: {fileID: 1476817732}
   - component: {fileID: 1476817731}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 1539752587}
   - component: {fileID: 1539752586}
   - component: {fileID: 1539752585}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,7 +1165,6 @@ GameObject:
   - component: {fileID: 1610084812}
   - component: {fileID: 1610084815}
   - component: {fileID: 1610084814}
-  - component: {fileID: 1610084813}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1187,20 +1186,6 @@ Transform:
   m_Father: {fileID: 1735898772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1610084813
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610084811}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1610084814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1280,8 +1265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f491d063ef4833745951c47db355caa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerController: {fileID: 0}
-  speed: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  runSpeed: 8
+  jumpHeight: 2
+  characterController: {fileID: 1735898771}
 --- !u!143 &1735898771
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1293,8 +1282,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.7543434
-  m_Radius: 0.17293856
+  m_Height: 2
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1308,7 +1297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735898769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1610084812}
@@ -1357,7 +1346,7 @@ GameObject:
   - component: {fileID: 2120261995}
   - component: {fileID: 2120261994}
   - component: {fileID: 2120261993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
